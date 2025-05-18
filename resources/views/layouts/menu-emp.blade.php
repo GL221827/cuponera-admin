@@ -25,7 +25,7 @@
                  <!-- Menú desplegable empleados -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        Usuarios
+                        Empleados
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Lista de empleados</a></li>
@@ -39,9 +39,15 @@
                 <li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>  <!-- Aqui se verian los cupones vendidos y quien los compro -->
             </ul>
 
-            <ul class="navbar-nav">
-                <!-- Aquí puedes manejar el login/logout luego -->
-                <li class="nav-item"><a class="nav-link" href="#">Cerrar sesión</a></li>
+             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link nav-link" style="display:inline; padding: 0; border: none; background: none;">
+                            Cerrar sesión
+                        </button>
+                         </form>
+                </li>
             </ul>
         </div>
     </div>

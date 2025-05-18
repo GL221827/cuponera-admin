@@ -9,7 +9,6 @@
 
         <div class="collapse navbar-collapse" id="cuponeraNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                 <!-- Menú desplegable Ofertas -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -17,7 +16,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Ver Ofertas</a></li>
-                         <li><a class="dropdown-item" href="#">Ver solicitudes</a></li>
+                        <li><a class="dropdown-item" href="#">Ver solicitudes</a></li>
                     </ul>
                 </li>
 
@@ -32,22 +31,22 @@
                     </ul>
                 </li>
 
-                 <!--Menu para ver la informacion de los clientes -->
-                <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li> <!-- Aqui se verian la informacion de cada cliente -->
+                <!--Menu para ver la informacion de los clientes -->
+                <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li>
+
+                <!-- Menú rubros -->
+                <li class="nav-item"><a class="nav-link" href="#">Rubros</a></li>
             </ul>
 
-                  <!-- Menú desplegable rubros -->
-                 <li class="nav-item"><a class="nav-link" href="#">Rubros</a></li>
-            </ul>   <!-- Aqui se verian los rubros y las empresas que estan en cada rubro -->
-                 <!-- tambien estarian las acciones para eliminar y actualizar al lado de cada rubro -->
-                  <!-- Para agregar nuevos rubors deberia de haber un pequeño form arriba de la lista de rubros con sus empresas -->
-
-                  
-              
-
             <ul class="navbar-nav">
-                <!-- Aquí puedes manejar el login/logout luego -->
-                <li class="nav-item"><a class="nav-link" href="#">Cerrar sesión</a></li>
+                <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link nav-link" style="display:inline; padding: 0; border: none; background: none;">
+                            Cerrar sesión
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

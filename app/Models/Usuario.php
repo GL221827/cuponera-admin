@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by Reliese Model.
  */
@@ -7,6 +6,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class Usuario
@@ -25,27 +26,49 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Usuario extends Model
+
+class Usuario extends Authenticatable
 {
-	protected $table = 'usuario';
-	protected $primaryKey = 'id_Usuario';
-	public $timestamps = false;
+    use  Notifiable;
 
-	protected $casts = [
-		'id_tipo_usuario' => 'int',
-		'verificado' => 'bool'
-	];
+    protected $table = 'usuario';
+    protected $primaryKey = 'id_Usuario';
+    public $timestamps = false;
 
-	protected $fillable = [
-		'nombre',
-		'apellido',
-		'telefono',
-		'correo',
-		'direccion',
-		'DUI',
-		'contra',
-		'id_tipo_usuario',
-		'codigo_verificacion',
-		'verificado'
-	];
+    protected $casts = [
+        'id_tipo_usuario' => 'int',
+        'verificado' => 'bool'
+    ];
+
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'telefono',
+        'correo',
+        'direccion',
+        'DUI',
+        'contra',
+        'id_tipo_usuario',
+        'codigo_verificacion',
+        'verificado'
+    ];
+
+     public function getAuthIdentifierName()
+	  {
+		  return 'correo';
+	  }
+
+
+    // metodo para conseguir la contraseña
+    public function getAuthPassword()
+    {
+        return $this->contra;
+    }
+
+    // relacion con tipo de usuario
+    public function tipo()
+    {
+        return $this->belongsTo(TipoUsuario::class, 'id_tipo_usuario');
+    }
 }
+
