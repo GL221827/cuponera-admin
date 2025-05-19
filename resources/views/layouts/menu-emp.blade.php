@@ -39,14 +39,21 @@
                 <li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>  <!-- Aqui se verian los cupones vendidos y quien los compro -->
             </ul>
 
-             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link nav-link" style="display:inline; padding: 0; border: none; background: none;">
-                            Cerrar sesión
-                        </button>
-                         </form>
+             <!-- Menú desplegable Usuario  -->
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Usuario
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{{ route('usuarios.change-password') }}">Cambiar Contraseña</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

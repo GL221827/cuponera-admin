@@ -44,13 +44,22 @@
                 </li>
             </ul>
 
-            <!-- Cerrar sesión -->
+            
+            <!-- Menú desplegable Usuario  -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button class="btn btn-link nav-link" type="submit">Cerrar sesión</button>
-                    </form>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Usuario
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{{ route('usuarios.change-password') }}">Cambiar Contraseña</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

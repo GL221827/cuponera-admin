@@ -25,6 +25,13 @@
             <input type="password" name="contra" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
+
+        <!-- Link a recuperación de contraseña -->
+            <div class="mt-3">
+                <a href="{{ route('usuarios.password-request') }}">¿Olvidaste tu contraseña?</a>
+            </div>
+
+        
     </form>
 @endsection
 
