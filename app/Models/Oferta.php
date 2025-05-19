@@ -5,6 +5,7 @@
  */
 
 namespace App\Models;
+use App\Models\Empresa;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -58,4 +59,11 @@ class Oferta extends Model
 		'estado',
 		'justificacion_rechazo'
 	];
+
+	//Para que aparezca el nombre de la empresa en la lista de solicitudes
+	public function empresa()
+{
+    return $this->belongsTo(Empresa::class, 'empresa_id');
+}
+
 }
