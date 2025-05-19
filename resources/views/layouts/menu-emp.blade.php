@@ -2,7 +2,7 @@
  <!-- esto despues se debe de limitar segun usuarios -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">La Cuponera</a>
+        <a class="navbar-brand" href="{{ route('inicio') }}">La Cuponera</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cuponeraNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,21 +22,11 @@
                 </li>
 
 
-                 <!-- Menú desplegable empleados -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        Empleados
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Lista de empleados</a></li>
-                        <li><a class="dropdown-item" href="#">Registrar empleados</a></li>
-                    </ul>
-                </li>
+               
 
                  
                   
-                <!-- Menu de ventas -->
-                <li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>  <!-- Aqui se verian los cupones vendidos y quien los compro -->
+                
             </ul>
 
              <!-- Menú desplegable Usuario  -->

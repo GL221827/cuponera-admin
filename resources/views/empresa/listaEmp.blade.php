@@ -38,7 +38,7 @@
             <td>{{ $emp->rubro }}</td>
             <td>{{ $emp->porcentaje_comision }}</td>
             <td>
-                <a href="{{ route('empresas.editar', $emp->id_Empresa) }}" class="btn btn-sm btn-primary">Editar</a>
+                
                 <form action="{{ route('empresas.eliminar', $emp->id_Empresa) }}" method="POST" style="display:inline-block">
                     @csrf
                     @method('DELETE')

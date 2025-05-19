@@ -2,7 +2,7 @@
  <!-- esto despues se debe de limitar segun usuarios -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">La Cuponera</a>
+        <a class="navbar-brand" href="{{ route('inicio') }}">La Cuponera</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cuponeraNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,15 +33,7 @@
                     </ul>
                 </li>
 
-                <!-- Clientes -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Clientes</a>
-                </li>
-
-                <!-- Rubros -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Rubros</a>
-                </li>
+                
             </ul>
 
             
