@@ -53,6 +53,15 @@ class Usuario extends Authenticatable
         'verificado'
     ];
 
+     protected $attributes = [
+        'apellido' => '',
+        'telefono' => '',
+        'direccion' => '',
+        'DUI' => '',
+        'codigo_verificacion' => null,
+        'verificado' => false
+    ];
+
      public function getAuthIdentifierName()
 	  {
 		  return 'correo';
