@@ -58,8 +58,9 @@ class EmpresaController extends Controller
 
         // Enviar contraseña al correo
         Mail::raw("Su contraseña de acceso es: $password", function($message) use ($request) {
-            $message->to($request->correo_empresa)
-                    ->subject('Acceso a La Cuponera');
+              $message->from(config('mail.from.address'), config('mail.from.name'))
+            ->to($request->correo_empresa)
+            ->subject('Acceso a La Cuponera');
         });
 
         return redirect()->route('empresas.lista')->with('success', 'Empresa registrada y contraseña enviada por correo.');
