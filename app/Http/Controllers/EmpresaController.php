@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empresa;
 use App\Models\Usuario;
+use App\Models\Oferta;
+use App\Models\TipoUsuario;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 
@@ -73,34 +75,40 @@ class EmpresaController extends Controller
     }
 
     public function editar($id)
-{
-    $empresa = Empresa::findOrFail($id);
-    return view('empresa.editEmp', compact('empresa'));
-}
+    {
+        $empresa = Empresa::findOrFail($id);
+        return view('empresa.editEmp', compact('empresa'));
+    }
 
-public function actualizar(Request $request, $id)
-{
-    $request->validate([
-        'nombre_empresa' => 'required',
-        'direccion_empresa' => 'required',
-        'nombre_contacto' => 'required',
-        'telefono' => 'required',
-        'correo_empresa' => 'required|email',
-        'rubro' => 'required',
-        'porcentaje_comision' => 'required|numeric|min:0|max:100'
-    ]);
+    public function actualizar(Request $request, $id)
+    {
+        $request->validate([
+            'nombre_empresa' => 'required',
+            'direccion_empresa' => 'required',
+            'nombre_contacto' => 'required',
+            'telefono' => 'required',
+            'correo_empresa' => 'required|email',
+            'rubro' => 'required',
+            'porcentaje_comision' => 'required|numeric|min:0|max:100'
+        ]);
 
-    $empresa = Empresa::findOrFail($id);
-    $empresa->update($request->all());
+        $empresa = Empresa::findOrFail($id);
+        $empresa->update($request->all());
 
-    return redirect()->route('empresas.lista')->with('success', 'Empresa actualizada correctamente.');
-}
+        return redirect()->route('empresas.lista')->with('success', 'Empresa actualizada correctamente.');
+    }
 
-public function eliminar($id)
-{
-    $empresa = Empresa::findOrFail($id);
-    $empresa->delete();
+    public function eliminar($id)
+    {
+        $empresa = Empresa::findOrFail($id);
+        $empresa->delete();
 
-    return redirect()->route('empresas.lista')->with('success', 'Empresa eliminada.');
-}
+        return redirect()->route('empresas.lista')->with('success', 'Empresa eliminada.');
+    }
+
+    public function ofertas($id){
+        $empresa = Empresa::findOrFail($id);
+        $ofertas = Oferta::where('empresa_id', $empresa->id_Empresa)->get();
+        return view('empresa.ofertasEmp', compact('ofertas', 'empresa'));
+    }
 }

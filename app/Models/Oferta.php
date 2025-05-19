@@ -62,8 +62,12 @@ class Oferta extends Model
 
 	//Para que aparezca el nombre de la empresa en la lista de solicitudes
 	public function empresa()
-{
-    return $this->belongsTo(Empresa::class, 'empresa_id');
-}
+	{
+		return $this->belongsTo(Empresa::class, 'empresa_id');
+	}
+
+	public function compras(){
+		return $this->hasMany(Compra::class, 'oferta_id', 'id_Ofertas');
+	}
 
 }

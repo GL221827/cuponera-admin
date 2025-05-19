@@ -5,7 +5,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -81,8 +80,12 @@ class Usuario extends Authenticatable
     }
 
     public function empresa()
-{
-    return $this->hasOne(Empresa::class, 'usuario_id', 'id_Usuario'); 
-}
+    {
+        return $this->hasOne(Empresa::class, 'usuario_id', 'id_Usuario'); 
+    }
+
+    public function user(){
+        return $this->hasOne(Usuario::class, 'id_tipo_usuario', 'id_tipo_usuario');
+    }
 }
 

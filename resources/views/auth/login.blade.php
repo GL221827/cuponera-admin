@@ -10,7 +10,8 @@
 
 
 
-@extends('layouts.app') <!-- en app estan todos los diseños y verifica que tipo de usuario es -->
+{{-- filepath: c:\xampp\htdocs\cuponera-admin\resources\views\auth\login.blade.php --}}
+@extends('layouts.app')
 
 @section('content')
     <h2>Iniciar Sesión</h2>
@@ -25,13 +26,9 @@
             <input type="password" name="contra" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
-
-        <!-- Link a recuperación de contraseña -->
-            <div class="mt-3">
-                <a href="{{ route('usuarios.password-request') }}">¿Olvidaste tu contraseña?</a>
-            </div>
-
-        
+        <div class="mt-3">
+            <a href="{{ route('usuarios.password-request') }}">¿Olvidaste tu contraseña?</a>
+        </div>
     </form>
 @endsection
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
@@ -71,7 +72,7 @@ class UsuariosController extends Controller
         return back()->withErrors(['confirmar_contra' => 'La confirmación no coincide con la nueva contraseña.']);
     }
 
-    $user = Auth::user();
+    $user = Usuario::find(Auth::id());
 
     // Comparar la contraseña actual hasheada con SHA-512
     if ($user->contra !== hash('sha512', $request->contra_actual)) {

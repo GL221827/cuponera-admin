@@ -16,7 +16,7 @@
                         Ofertas
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Ver Ofertas</a></li>
+                        <li><a class="dropdown-item" href="{{ route('oferta.verOferta') }}">Ver Ofertas</a></li>
                          <li><a class="dropdown-item" href="{{ route('oferta.nueva') }}">Registrar ofertas</a></li>
                     </ul>
                 </li>
@@ -59,3 +59,8 @@
         </div>
     </div>
 </nav>
+
+@if(session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
+
