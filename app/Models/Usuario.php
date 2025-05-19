@@ -79,5 +79,10 @@ class Usuario extends Authenticatable
     {
         return $this->belongsTo(TipoUsuario::class, 'id_tipo_usuario');
     }
+
+    public function empresa()
+{
+    return $this->hasOne(Empresa::class, 'usuario_id', 'id_Usuario'); 
+}
 }
 
