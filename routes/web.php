@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\OfertasController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -16,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [UsuariosController::class, 'logout'])->name('logout'); //ruta de logout solo para usuario que han iniciado sesion
 });
 
+//menu para ver el menu de empresa del admin
  Route::middleware(['auth', 'admin.cuponera'])->group(function () {
     Route::get('/empresas', [EmpresaController::class, 'listar'])->name('empresas.lista');
     Route::get('/empresas/registrar', [EmpresaController::class, 'mostrarFormulario'])->name('empresas.nueva');
@@ -23,4 +25,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/empresas/{id}/editar', [EmpresaController::class, 'editar'])->name('empresas.editar');
 Route::put('/empresas/{id}', [EmpresaController::class, 'actualizar'])->name('empresas.actualizar');
 Route::delete('/empresas/{id}', [EmpresaController::class, 'eliminar'])->name('empresas.eliminar');
+});
+
+//rutas para ver el menu de ofertas
+Route::middleware(['auth', 'admin.cuponera'])->group(function () {
+    Route::get('/solicitudes-ofertas', [OfertasController::class, 'verSolicitudes'])->name('ofertas.solicitudes');
+    Route::post('/oferta/aprobar/{id}', [OfertasController::class, 'aprobar'])->name('oferta.aprobar');
+    Route::post('/oferta/rechazar/{id}', [OfertasController::class, 'rechazar'])->name('oferta.rechazar');
+    Route::post('/oferta/descartar/{id}', [OfertasController::class, 'descartar'])->name('oferta.descartar');
 });
