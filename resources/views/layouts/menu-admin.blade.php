@@ -16,7 +16,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Ver Ofertas</a></li>
-                        <li><a class="dropdown-item" href="#">Ver solicitudes</a></li>
+                        <li><a class="dropdown-item" href="#">Ver Solicitudes</a></li>
                     </ul>
                 </li>
 
@@ -26,25 +26,28 @@
                         Empresas
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Lista de Empresas</a></li>
-                        <li><a class="dropdown-item" href="#">Registrar Empresa</a></li>
+                        <li><a class="dropdown-item" href="{{ route('empresas.lista') }}">Lista de Empresas</a></li>
+                        <li><a class="dropdown-item" href="{{ route('empresas.nueva') }}">Registrar Empresa</a></li>
                     </ul>
                 </li>
 
-                <!--Menu para ver la informacion de los clientes -->
-                <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li>
+                <!-- Clientes -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Clientes</a>
+                </li>
 
-                <!-- Menú rubros -->
-                <li class="nav-item"><a class="nav-link" href="#">Rubros</a></li>
+                <!-- Rubros -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rubros</a>
+                </li>
             </ul>
 
+            <!-- Cerrar sesión -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link nav-link" style="display:inline; padding: 0; border: none; background: none;">
-                            Cerrar sesión
-                        </button>
+                        <button class="btn btn-link nav-link" type="submit">Cerrar sesión</button>
                     </form>
                 </li>
             </ul>
