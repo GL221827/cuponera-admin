@@ -11,10 +11,18 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/login', [UsuariosController::class, 'mostrarLogin'])->name('login'); //ruta mostrar el form de login
 Route::post('/login', [UsuariosController::class, 'login'])->name('login.post'); //ruta validar login
 
-//rutas privadas
+// Recuperación de contraseña (usuarios no autenticados)
+Route::get('/usuarios/recuperar-password', [UsuariosController::class, 'requestPassword'])->name('usuarios.password-request');
+Route::post('/usuarios/enviar-password', [UsuariosController::class, 'sendPassword'])->name('usuarios.password-email');
+
+//rutas privadas para usuarios autenticados
 Route::middleware('auth')->group(function () {
     Route::get('/inicio', [UsuariosController::class, 'inicio'])->name('inicio'); //ruta que abre el inicio solo si se inicia sesion
     Route::post('/logout', [UsuariosController::class, 'logout'])->name('logout'); //ruta de logout solo para usuario que han iniciado sesion
+    
+    // Cambio de contraseña para usuarios autenticados
+    Route::get('/usuarios/cambiar-password', [UsuariosController::class, 'changePassword'])->name('usuarios.change-password');
+    Route::post('/usuarios/actualizar-password', [UsuariosController::class, 'updatePassword'])->name('usuarios.update-password');
 });
 
 //menu para ver el menu de empresa del admin
