@@ -34,3 +34,8 @@ Route::middleware(['auth', 'admin.cuponera'])->group(function () {
     Route::post('/oferta/rechazar/{id}', [OfertasController::class, 'rechazar'])->name('oferta.rechazar');
     Route::post('/oferta/descartar/{id}', [OfertasController::class, 'descartar'])->name('oferta.descartar');
 });
+
+Route::middleware(['auth', 'admin.empresa'])->group(function () {
+    Route::get('/nueva-oferta', [OfertasController::class, 'nuevaOferta'])->name('oferta.nueva');
+    Route::post('/oferta/guardar', [OfertasController::class, 'guardarOferta'])->name('oferta.guardar');
+});
