@@ -16,7 +16,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Ver Ofertas</a></li>
-                        <li><a class="dropdown-item" href="#">Ver Solicitudes</a></li>
+                        <li><a class="dropdown-item" href="{{ route('ofertas.solicitudes') }}">Ver Solicitudes</a></li>
+
+
                     </ul>
                 </li>
 
