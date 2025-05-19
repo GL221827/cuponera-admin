@@ -17,7 +17,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Ver Ofertas</a></li>
-                         <li><a class="dropdown-item" href="#">Registrar ofertas</a></li>
+                         <li><a class="dropdown-item" href="{{ route('oferta.nueva') }}">Registrar ofertas</a></li>
                     </ul>
                 </li>
 
